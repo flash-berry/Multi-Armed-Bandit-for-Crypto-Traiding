@@ -1,0 +1,34 @@
+Mixed z72-corr + z24-HIE default screening summary
+Created at: 2026-05-15T20:55:09
+Screening mode: mixed_only
+Mixed set name: z72corr5_z24hie5_a0p5_mixed_hybrid_top10
+Expected backtests: 62
+Errors: 0
+
+Mixed feature set:
+  01. z72__range_sqrt_z
+  02. z72__vol_ratio_72_log1p_z
+  03. z72__dist_to_high_168_sqrt_z
+  04. z72__body_sqrt_z
+  05. z72__bb_width_20_sqrt_z
+  06. z24__ADX_30_scaled
+  07. z24__dist_to_high_24_sqrt_z
+  08. z24__price_pos_in_range_72_norm
+  09. z24__ema_spread_100_200_z
+  10. z24__RSI_72_bounded
+
+Internal correlation check:
+  max_abs_spearman_corr=0.785981
+  pass_threshold=True
+
+Current mixed screening ranking:
+  discounted_lints: return=-2.9928% | drawdown=11.0222 | PF=0.7961 | trades=606
+  discounted_linucb: return=0.7477% | drawdown=11.2879 | PF=1.0072 | trades=423
+  sw_lints: return=-4.9053% | drawdown=11.4930 | PF=0.7569 | trades=590
+  sw_linucb: return=0.7521% | drawdown=11.0449 | PF=1.0053 | trades=466
+
+Mixed vs previous old-best candidates:
+  discounted_lints: mixed_rank=5 | mixed_minus_old_best_return=-2.8101% | old_best=z24_a0p5_hybrid_corr5_stablehie5_top10
+  discounted_linucb: mixed_rank=3 | mixed_minus_old_best_return=-0.9544% | old_best=z24_a0p5_hybrid_corr5_stablehie5_top10
+  sw_lints: mixed_rank=7 | mixed_minus_old_best_return=-3.3163% | old_best=z72_a0p5_corr_pruned_top10
+  sw_linucb: mixed_rank=1 | mixed_minus_old_best_return=0.1450% | old_best=z72_a0p5_corr_pruned_top10

@@ -1,0 +1,2 @@
+set_name,n_features,max_abs_spearman_corr,pass_threshold,threshold
+z72corr5_z24hie5_a0p5_mixed_hybrid_top10,10,0.7859812792251156,True,0.85
