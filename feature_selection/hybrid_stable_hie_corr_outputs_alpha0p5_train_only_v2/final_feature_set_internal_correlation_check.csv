@@ -1,0 +1,9 @@
+set_name,family,z_window,n_features,max_abs_spearman_inside_set,max_corr_pair,passes_threshold
+z24_a0p5_corr_pruned_top10,corr_pruned,24,10,0.7730660724124188,"('vol_ratio_168_log1p_z', 'range_sqrt_z')",True
+z24_a0p5_hybrid_corr5_stablehie5_top10,hybrid_corr_stable_hie,24,10,0.7849029690119769,"('price_pos_in_range_72_norm', 'RSI_72_bounded')",True
+z48_a0p5_corr_pruned_top10,corr_pruned,48,10,0.8471403833549002,"('MOM_pct_14_z', 'ema_spread_9_21_z')",True
+z48_a0p5_hybrid_corr5_stablehie5_top10,hybrid_corr_stable_hie,48,10,0.7845329375734497,"('MACD_hist_pct_z', 'MOM_pct_14_z')",True
+z72_a0p5_corr_pruned_top10,corr_pruned,72,10,0.7994652402828879,"('NATR_14_z', 'volatility_24_sqrt_z')",True
+z72_a0p5_hybrid_corr5_stablehie5_top10,hybrid_corr_stable_hie,72,10,0.776829088812138,"('log_ret_72_z', 'ema_slope_100_z')",True
+z96_a0p5_corr_pruned_top10,corr_pruned,96,10,0.8451652685274527,"('range_sqrt_z', 'vol_expansion_24_log1p_z')",True
+z96_a0p5_hybrid_corr5_stablehie5_top10,hybrid_corr_stable_hie,96,10,0.8451652685274527,"('range_sqrt_z', 'vol_expansion_24_log1p_z')",True

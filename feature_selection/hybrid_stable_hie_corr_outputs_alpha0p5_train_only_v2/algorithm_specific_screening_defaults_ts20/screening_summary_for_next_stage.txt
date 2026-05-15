@@ -1,0 +1,24 @@
+Defaults screening summary: hybrid/corr alpha_out=0.5
+Feature sets evaluated: 8
+Expected backtests: 496
+Errors: 0
+
+Balanced selected candidates for Optuna:
+  discounted_lints:
+    corr: z24_a0p5_corr_pruned_top10 | rank=2 | median_return=-2.2365% | drawdown=12.0827
+    hybrid: z24_a0p5_hybrid_corr5_stablehie5_top10 | rank=1 | median_return=-0.1827% | drawdown=11.8365
+  discounted_linucb:
+    corr: z72_a0p5_corr_pruned_top10 | rank=2 | median_return=1.6356% | drawdown=8.3726
+    hybrid: z24_a0p5_hybrid_corr5_stablehie5_top10 | rank=1 | median_return=1.7021% | drawdown=9.7909
+  sw_lints:
+    corr: z72_a0p5_corr_pruned_top10 | rank=1 | median_return=-1.5890% | drawdown=10.4623
+    hybrid: z24_a0p5_hybrid_corr5_stablehie5_top10 | rank=5 | median_return=-3.9474% | drawdown=11.4474
+  sw_linucb:
+    corr: z72_a0p5_corr_pruned_top10 | rank=1 | median_return=0.6070% | drawdown=9.6458
+    hybrid: z24_a0p5_hybrid_corr5_stablehie5_top10 | rank=3 | median_return=-0.6098% | drawdown=8.4994
+
+Best corr vs best hybrid by bandit:
+  discounted_lints: winner_by_rank=hybrid, hybrid_minus_corr_return=2.0538%
+  discounted_linucb: winner_by_rank=hybrid, hybrid_minus_corr_return=0.0665%
+  sw_lints: winner_by_rank=corr, hybrid_minus_corr_return=-2.3584%
+  sw_linucb: winner_by_rank=corr, hybrid_minus_corr_return=-1.2169%
