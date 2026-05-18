@@ -24,8 +24,6 @@ FULL_STATE_FEATURES = [
 
 DEFAULT_STATE_FEATURES = [
     "state_in_position",
-    "state_log_bars_in_position",
-    "state_unrealized_pnl",
 ]
 
 
