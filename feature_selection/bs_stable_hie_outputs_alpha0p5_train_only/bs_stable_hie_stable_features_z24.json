@@ -1,0 +1,112 @@
+{
+  "z_window": 24,
+  "alpha_out": 0.5,
+  "stable_features_by_top_k": {
+    "7": [
+      "ADX_72_scaled",
+      "ADX_30_scaled"
+    ],
+    "14": [
+      "ADX_72_scaled",
+      "ADX_30_scaled",
+      "ema_spread_50_100_z",
+      "RSI_72_bounded",
+      "RSI_14_bounded",
+      "ema_spread_9_21_z",
+      "RSI_30_bounded",
+      "ema_slope_50_z",
+      "ema_spread_100_200_z"
+    ],
+    "20": [
+      "ADX_72_scaled",
+      "ADX_30_scaled",
+      "RSI_72_bounded",
+      "ema_spread_50_100_z",
+      "RSI_14_bounded",
+      "RSI_30_bounded",
+      "ema_slope_50_z",
+      "ema_spread_9_21_z",
+      "ema_spread_100_200_z",
+      "price_pos_in_range_168_norm",
+      "ema_slope_21_z",
+      "volatility_24_sqrt_z",
+      "volatility_72_sqrt_z",
+      "volatility_168_sqrt_z"
+    ],
+    "26": [
+      "ADX_72_scaled",
+      "ADX_30_scaled",
+      "ema_slope_50_z",
+      "RSI_72_bounded",
+      "RSI_30_bounded",
+      "ema_spread_9_21_z",
+      "ema_spread_100_200_z",
+      "ema_spread_50_100_z",
+      "RSI_14_bounded",
+      "volatility_72_sqrt_z",
+      "ema_slope_21_z",
+      "price_pos_in_range_168_norm",
+      "volatility_24_sqrt_z",
+      "volatility_168_sqrt_z",
+      "ADX_14_scaled",
+      "bb_width_20_sqrt_z",
+      "price_pos_in_range_72_norm",
+      "ema_slope_100_z",
+      "dist_ema_200_z",
+      "ret_accel_24_72_z",
+      "ema_spread_21_50_z",
+      "NATR_14_z",
+      "ema_slope_200_z"
+    ]
+  },
+  "mb_stability_bound_by_top_k": {
+    "7": 4.537037037037038,
+    "14": 18.148148148148152,
+    "20": 37.037037037037045,
+    "26": 62.59259259259261
+  },
+  "bin_validity_summary": {
+    "median_entry_min_bin_size_used_at_main_top_k": 1120.0,
+    "median_exit_min_bin_size_used_at_main_top_k": 1120.0,
+    "median_entry_min_action_count_in_bin_at_main_top_k": 560.0,
+    "median_exit_min_action_count_in_bin_at_main_top_k": 560.0,
+    "hie_threshold_min_bin_size": 40,
+    "hie_threshold_min_action_count_per_bin": 20
+  },
+  "config_used": {
+    "block": {
+      "n_subsamples": 50,
+      "subsample_fraction": 0.5,
+      "block_length": 50,
+      "pi_threshold": 0.6,
+      "main_top_k": 14,
+      "sensitivity_grid_top_k": [
+        7,
+        14,
+        20,
+        26
+      ],
+      "overlap_blocks": false,
+      "random_state": 42
+    },
+    "hie": {
+      "n_bins": 15,
+      "n_bootstrap": 30,
+      "min_bin_size": 40,
+      "min_action_count_per_bin": 20
+    },
+    "alpha_out": 0.5,
+    "horizon": 10,
+    "trade_cost": 0.0025,
+    "future_log_ret_col": "future_log_ret_true",
+    "z_window": 24,
+    "n_train": 16962,
+    "n_features": 54,
+    "rows_per_symbol": {
+      "BTCUSDT": 5654,
+      "ETHUSDT": 5654,
+      "SOLUSDT": 5654
+    }
+  },
+  "compute_seconds": 3178.0333247184753
+}

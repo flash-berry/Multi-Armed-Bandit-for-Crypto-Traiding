@@ -1,0 +1,9 @@
+bandit_name,method_group,set_name,z_window,n_total,n_feasible,feasible_share
+discounted_lints,corr,z24_a0p5_corr_pruned_top10,24,16,16,1.0
+discounted_lints,hybrid,z72_a0p5_hybrid_corr5_bsstablehie5_top10,72,16,16,1.0
+discounted_linucb,corr,z24_a0p5_corr_pruned_top10,24,16,16,1.0
+discounted_linucb,hybrid,z72_a0p5_hybrid_corr5_bsstablehie5_top10,72,16,16,1.0
+sw_lints,corr,z48_a0p5_corr_pruned_top10,48,16,16,1.0
+sw_lints,hybrid,z72_a0p5_hybrid_corr5_bsstablehie5_top10,72,16,16,1.0
+sw_linucb,corr,z48_a0p5_corr_pruned_top10,48,16,16,1.0
+sw_linucb,hybrid,z72_a0p5_hybrid_corr5_bsstablehie5_top10,72,16,16,1.0

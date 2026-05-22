@@ -1,0 +1,46 @@
+{
+  "created_at": "2026-05-14T13:01:42.703098",
+  "loader": "KlinesDataLoader.load_data",
+  "ohlcv_relative_path": "data\\klines_data\\crypto_240m_bybit_TEST.parquet",
+  "main_hie_alpha_out": 0.5,
+  "alpha_overlap_reference": 1.0,
+  "alpha_overlap_demo_z_windows": [
+    72
+  ],
+  "horizon": 10,
+  "trade_cost": 0.0025,
+  "z_windows": [
+    24,
+    48,
+    72,
+    96
+  ],
+  "train_blocks": [
+    "early_train",
+    "mid_train",
+    "late_train"
+  ],
+  "hie_topk_stability_grid": [
+    7,
+    14,
+    20,
+    26
+  ],
+  "main_hie_stability_topk": 14,
+  "hie_min_stability_count": 2,
+  "n_bins": 15,
+  "n_bootstrap": 100,
+  "min_bin_size": 40,
+  "min_action_count_per_bin": 20,
+  "prune_threshold": 0.85,
+  "default_final_k": 10,
+  "default_corr_core_k": 5,
+  "default_hie_target_k": 5,
+  "strict_exclude_raw_corr_top_n_for_incremental": null,
+  "val_bars": 2000,
+  "test_bars": 2000,
+  "embargo_bars": 0,
+  "strict_train_only": true,
+  "hie_stability_uses_spearman_pruning": false,
+  "final_hybrid_uses_spearman_pruning": true
+}

@@ -1,0 +1,48 @@
+{
+  "started_at": "2026-05-20T12:58:27.885912",
+  "finished_at": "2026-05-20T15:37:21.849646",
+  "duration_seconds": 9533.963734,
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT"
+  ],
+  "z_windows": [
+    24,
+    48,
+    72
+  ],
+  "alpha_out": 0.5,
+  "horizon": 10,
+  "trade_cost": 0.0025,
+  "val_bars": 2000,
+  "test_bars": 2000,
+  "embargo_bars": 10,
+  "block_subsampling": {
+    "n_subsamples_B": 50,
+    "block_length_L": 50,
+    "subsample_fraction": 0.5,
+    "pi_threshold": 0.6,
+    "main_top_k": 14,
+    "sensitivity_grid_top_k": [
+      7,
+      14,
+      20,
+      26
+    ],
+    "overlap_blocks": false
+  },
+  "hie": {
+    "n_bins": 15,
+    "n_bootstrap": 30,
+    "min_bin_size": 40,
+    "min_action_count_per_bin": 20
+  },
+  "hybrid": {
+    "final_k": 10,
+    "corr_core_k": 5,
+    "hie_target_k": 5,
+    "prune_threshold": 0.85,
+    "min_global_stability_z_windows": 1
+  }
+}

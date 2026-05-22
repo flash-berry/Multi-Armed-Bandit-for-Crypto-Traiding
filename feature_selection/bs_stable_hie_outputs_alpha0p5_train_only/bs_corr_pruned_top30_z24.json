@@ -1,0 +1,63 @@
+{
+  "z_window": 24,
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT"
+  ],
+  "horizon": 10,
+  "future_log_ret_col": "future_log_ret_true",
+  "prune_threshold": 0.85,
+  "n_features_total": 54,
+  "pruned_top30": [
+    "volatility_72_sqrt_z",
+    "ret_accel_6_24_z",
+    "MOM_pct_30_z",
+    "MOM_pct_14_z",
+    "ema_spread_9_21_z",
+    "log_ret_24_z",
+    "range_sqrt_z",
+    "vol_ratio_168_log1p_z",
+    "body_sqrt_z",
+    "ret_accel_24_72_z",
+    "NATR_14_z",
+    "dist_to_low_24_sqrt_z",
+    "ema_spread_21_50_z",
+    "MACD_hist_pct_z",
+    "price_pos_in_range_168_norm",
+    "ADX_14_scaled",
+    "ADX_30_scaled",
+    "volatility_168_sqrt_z",
+    "dist_to_high_24_sqrt_z",
+    "bb_width_20_sqrt_z",
+    "volatility_24_sqrt_z",
+    "dist_to_low_72_sqrt_z",
+    "ADX_72_scaled",
+    "RSI_14_bounded",
+    "dist_ema_200_z",
+    "price_pos_in_range_72_norm",
+    "ret_accel_72_168_z",
+    "dist_to_high_72_sqrt_z",
+    "log_ret_72_z",
+    "ema_spread_100_200_z"
+  ],
+  "pruned_top10": [
+    "volatility_72_sqrt_z",
+    "ret_accel_6_24_z",
+    "MOM_pct_30_z",
+    "MOM_pct_14_z",
+    "ema_spread_9_21_z",
+    "log_ret_24_z",
+    "range_sqrt_z",
+    "vol_ratio_168_log1p_z",
+    "body_sqrt_z",
+    "ret_accel_24_72_z"
+  ],
+  "pruned_top5": [
+    "volatility_72_sqrt_z",
+    "ret_accel_6_24_z",
+    "MOM_pct_30_z",
+    "MOM_pct_14_z",
+    "ema_spread_9_21_z"
+  ]
+}

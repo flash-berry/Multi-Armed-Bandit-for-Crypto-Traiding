@@ -1,0 +1,7 @@
+set_name,z_window,n_features,max_off_diagonal_corr,max_pair_a,max_pair_b,n_pairs_above_0p5,n_pairs_above_threshold,prune_threshold
+z24_a0p5_corr_pruned_top10,24,10,0.8430398417016604,ema_spread_9_21_z,log_ret_24_z,11,0,0.85
+z24_a0p5_hybrid_corr5_bsstablehie5_top10,24,10,0.8290524309037588,MOM_pct_14_z,ema_spread_9_21_z,10,0,0.85
+z48_a0p5_corr_pruned_top10,48,10,0.7888824635124754,MOM_pct_14_z,MACD_hist_pct_z,9,0,0.85
+z48_a0p5_hybrid_corr5_bsstablehie5_top10,48,10,0.7888824635124754,MOM_pct_14_z,MACD_hist_pct_z,6,0,0.85
+z72_a0p5_corr_pruned_top10,72,10,0.8480127400748149,MOM_pct_14_z,ema_spread_9_21_z,9,0,0.85
+z72_a0p5_hybrid_corr5_bsstablehie5_top10,72,10,0.8480127400748149,MOM_pct_14_z,ema_spread_9_21_z,9,0,0.85

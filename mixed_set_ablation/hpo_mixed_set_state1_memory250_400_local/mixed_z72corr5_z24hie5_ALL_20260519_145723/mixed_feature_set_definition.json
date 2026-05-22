@@ -1,0 +1,60 @@
+{
+  "set_name": "mixed_z72corr5_z24hie5_top10",
+  "family": "cross_z_mixed_corr_hie_ablation",
+  "method_group": "mixed",
+  "alpha_out": 0.5,
+  "n_features": 10,
+  "dataset_key": "mixed_z72corr5_z24hie5_top10",
+  "z_window": "z72_corr__z24_hie",
+  "source_z_windows": [
+    72,
+    24
+  ],
+  "corr_source_set": "z72_a0p5_corr_pruned_top10",
+  "hie_source_set": "z24_a0p5_hybrid_corr5_stablehie5_top10",
+  "corr_source_z": 72,
+  "hie_source_z": 24,
+  "corr_core_k": 5,
+  "hie_incremental_k": 5,
+  "corr_core_original_features": [
+    "range_sqrt_z",
+    "vol_ratio_72_log1p_z",
+    "dist_to_high_168_sqrt_z",
+    "body_sqrt_z",
+    "bb_width_20_sqrt_z"
+  ],
+  "hie_incremental_original_features": [
+    "ADX_30_scaled",
+    "dist_to_high_24_sqrt_z",
+    "price_pos_in_range_72_norm",
+    "ema_spread_100_200_z",
+    "RSI_72_bounded"
+  ],
+  "z72_feature_map": {
+    "range_sqrt_z": "z72__range_sqrt_z",
+    "vol_ratio_72_log1p_z": "z72__vol_ratio_72_log1p_z",
+    "dist_to_high_168_sqrt_z": "z72__dist_to_high_168_sqrt_z",
+    "body_sqrt_z": "z72__body_sqrt_z",
+    "bb_width_20_sqrt_z": "z72__bb_width_20_sqrt_z"
+  },
+  "z24_feature_map": {
+    "ADX_30_scaled": "z24__ADX_30_scaled",
+    "dist_to_high_24_sqrt_z": "z24__dist_to_high_24_sqrt_z",
+    "price_pos_in_range_72_norm": "z24__price_pos_in_range_72_norm",
+    "ema_spread_100_200_z": "z24__ema_spread_100_200_z",
+    "RSI_72_bounded": "z24__RSI_72_bounded"
+  },
+  "features": [
+    "z72__range_sqrt_z",
+    "z72__vol_ratio_72_log1p_z",
+    "z72__dist_to_high_168_sqrt_z",
+    "z72__body_sqrt_z",
+    "z72__bb_width_20_sqrt_z",
+    "z24__ADX_30_scaled",
+    "z24__dist_to_high_24_sqrt_z",
+    "z24__price_pos_in_range_72_norm",
+    "z24__ema_spread_100_200_z",
+    "z24__RSI_72_bounded"
+  ],
+  "notes": "Mixed ablation set: first 5 features from z72 corr_pruned_top10 plus first 5 HIE-incremental features from z24 hybrid_corr5_stablehie5_top10. Columns are source-prefixed so z-window provenance is explicit. This is an ablation, not part of the original Stage 1 screening design."
+}
