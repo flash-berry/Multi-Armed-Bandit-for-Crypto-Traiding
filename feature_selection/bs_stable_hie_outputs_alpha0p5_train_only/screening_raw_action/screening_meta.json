@@ -1,0 +1,81 @@
+{
+  "started_at": "2026-05-24T15:03:30.002646",
+  "finished_at": "2026-05-24T18:31:34.531948",
+  "duration_seconds": 12484.529302,
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT"
+  ],
+  "z_windows": [
+    24,
+    48,
+    72
+  ],
+  "algorithms": [
+    "discounted_lints",
+    "discounted_linucb",
+    "sw_lints",
+    "sw_linucb"
+  ],
+  "n_seeds_ts": 30,
+  "n_seeds_ucb": 1,
+  "threshold_mode": "none",
+  "bandit_update_action_source": "raw",
+  "bandit_update_policy": "all_bars",
+  "bandit_update_semantics": "Update policy: all_bars. Legacy 'all_bars' mode: post-hoc action masking / shielding (Alshiekh et al. 2018 style). Bandit is consulted on every bar; execution constraints override raw_action post-selection; bandit updates use executed_action after constraint shielding.",
+  "state_feature_columns": [
+    "state_in_position"
+  ],
+  "state_limitation_note": "bandit context = state_in_position only; bandit не видит bars_in_position / time_since_last_trade. В режиме decision_only это не приводит к искажению posterior, так как на forced-singleton барах (|feasible_set|=1) bandit вообще не consultируется и pending update не queued — posterior накапливается только на decision-point барах. Forced бары влияют на equity/PnL через execute_transition. Это применяется одинаково к hybrid и corr feature sets.",
+  "dro_alpha": 0.5,
+  "dro_objective_formula": "seed_dro_score = 0.5*min(mean_symbol(val_h1), mean_symbol(val_h2)) + 0.5*0.5*(mean_symbol(val_h1) + mean_symbol(val_h2)); dro_objective = median_seed(seed_dro_score)",
+  "dro_objective_interpretation": "α-смесь жёсткого worst-case min(h1,h2) и среднего 0.5*(h1+h2) с α=0.5. При α=1.0 классический temporal maximin DRO (равно CVaR(0.5) на 2-point uniform mixture). При α=0.5 это mean-CVaR mixture (Rockafellar-Uryasev 2000): худшая половина эффективный вес 0.75, лучшая 0.25 — optimizer учитывает обе половины при сохранении робастного наклона. При α=0.0 — простое среднее (без робастности). Aligned с финальной equal-weight aggregate evaluation strategy across symbols; synchronized между screening и HPO через DRO_ALPHA константу.",
+  "dro_diagnostics": {
+    "pure_min_half_median": "diagnostic: median_seed(min(h1, h2)) — что было бы при α=1.0, т.е. классический hard worst-case DRO baseline для сравнения",
+    "median_symbol_aggregate_minhalf": "median across symbols variant: робастный к outlier symbols",
+    "per_symbol_minhalf_median": "per-symbol maximin variant: более жёсткий, требует чтобы каждый symbol не проваливался в одной из половин (сохранён как diagnostic, не main)"
+  },
+  "constraint_semantics_note": "min_hold_bars=4 means min elapsed bars since entry = 4 (forced-hold blocks 3 decision bars after entry); cooldown_bars=2 means min elapsed bars since last trade = 2 (forced-flat blocks 1 decision bar after exit)",
+  "horizon": 10,
+  "trade_cost": 0.0025,
+  "val_bars": 2000,
+  "embargo_bars": 0,
+  "min_hold_bars": 4,
+  "cooldown_bars": 2,
+  "position_size": 0.1,
+  "start_capital": 100.0,
+  "reward_clip": 0.1,
+  "alpha_out": 0.5,
+  "feature_sets_source": "D:\\PythonProjects\\BTCTrading\\feature_selection\\bs_stable_hie_outputs_alpha0p5_train_only\\feature_sets_hybrid_corr_bs_stable_hie_alpha0p5.json",
+  "bandit_default_configs": {
+    "discounted_lints": {
+      "bandit_type": "discounted_lints",
+      "discount_factor": 0.9969230769230769,
+      "lambda_prior": 1.0,
+      "noise_std": 0.03,
+      "reward_clip": 0.1
+    },
+    "discounted_linucb": {
+      "bandit_type": "discounted_linucb",
+      "discount_factor": 0.9969230769230769,
+      "lambda_prior": 1.0,
+      "ucb_alpha": 0.1,
+      "reward_clip": 0.1
+    },
+    "sw_lints": {
+      "bandit_type": "sw_lints",
+      "window_size": 325,
+      "lambda_prior": 1.0,
+      "noise_std": 0.03,
+      "reward_clip": 0.1
+    },
+    "sw_linucb": {
+      "bandit_type": "sw_linucb",
+      "window_size": 325,
+      "lambda_prior": 1.0,
+      "ucb_alpha": 0.1,
+      "reward_clip": 0.1
+    }
+  }
+}

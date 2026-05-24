@@ -143,13 +143,13 @@ POSITION_SIZE = 0.10
 # Threshold and update semantics (post-обсуждение решения)
 THRESHOLD_MODE = "none"                       # disabled (no execution inertia)
 CONFIDENCE_THRESHOLD = 0.0                    # ignored when mode=none
-BANDIT_UPDATE_ACTION_SOURCE = "executed"      # action masking semantics
+BANDIT_UPDATE_ACTION_SOURCE = "raw"      # action masking semantics raw/executed
 
 # Bandit update policy — decision_only skips bandit consultation and pending-update
 # queueing on forced-singleton bars (where |feasible_set|=1 due to MIN_HOLD or
 # COOLDOWN). Bandit posterior accumulates ONLY on decision-point bars. Legacy
 # behavior ("all_bars") preserves pre-decision_only screening runs.
-BANDIT_UPDATE_POLICY = "decision_only"        # "all_bars" | "decision_only"
+BANDIT_UPDATE_POLICY = "all_bars"        # "all_bars" | "decision_only"
 
 # DRO objective: α-смесь min и mean между двумя halves validation.
 #   seed_dro_score = DRO_ALPHA * min(h1, h2) + (1 - DRO_ALPHA) * 0.5 * (h1 + h2)

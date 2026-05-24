@@ -1,0 +1,204 @@
+{
+  "created_at": "2026-05-22T15:37:45.370625",
+  "run_label": "A_discounted_20260522_153745",
+  "run_preset": "A_discounted",
+  "smoke_test": false,
+  "mode": "FULL",
+  "algorithms_to_run": [
+    "discounted_lints",
+    "discounted_linucb"
+  ],
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT"
+  ],
+  "state_features": [
+    "state_in_position"
+  ],
+  "n_trials_per_study": 50,
+  "ts_seeds_per_trial": [
+    3142,
+    3143,
+    3144,
+    3145,
+    3146
+  ],
+  "ucb_seeds_per_trial": [
+    3142
+  ],
+  "n_startup_trials": 10,
+  "full_n_trials": 50,
+  "full_ts_seeds_per_trial": [
+    3142,
+    3143,
+    3144,
+    3145,
+    3146
+  ],
+  "full_ucb_seeds_per_trial": [
+    3142
+  ],
+  "smoke_n_trials": 16,
+  "smoke_ts_seeds_per_trial": [
+    3142,
+    3143
+  ],
+  "smoke_ucb_seeds_per_trial": [
+    3142
+  ],
+  "search_space": {
+    "discounted": {
+      "one_minus_gamma_low": 0.0022222222222222222,
+      "one_minus_gamma_high": 0.005714285714285714,
+      "lambda_prior_low": 0.5,
+      "lambda_prior_high": 30.0
+    },
+    "sliding": {
+      "window_size_low": 175,
+      "window_size_high": 450,
+      "window_size_step": 25,
+      "lambda_prior_low": 0.5,
+      "lambda_prior_high": 30.0
+    },
+    "ts": {
+      "noise_std_low": 0.001,
+      "noise_std_high": 0.04
+    },
+    "ucb": {
+      "ucb_alpha_low": 0.005,
+      "ucb_alpha_high": 0.2
+    }
+  },
+  "constraints": {
+    "min_closed_trades_per_symbol": 50,
+    "pf_inf_cap_diagnostic": 10.0,
+    "convention": "constraint_value <= 0 is feasible; > 0 is violation",
+    "tuple_order": [
+      "min_symbol_trades",
+      "finite_objective"
+    ],
+    "note": "Minimal constraint set: only median_min_symbol_trades >= 50 + finite objective. Drawdown, profit factor, aggregate trade count are computed as diagnostics in trial_results_all.csv but NOT used to filter trials. Rationale: transaction costs enter realised log-returns, so excessive turnover is expected to hurt DRO empirically; turnover is monitored diagnostically, not constrained. Drawdown is reported as a path-risk diagnostic — the DRO objective is endpoint-aware (worst-half mean return), not path-aware, so intra-half drawdowns that recover by the half's endpoint are not penalized by DRO alone. min_symbol_trades is the single retained hard constraint (statistical floor + protection against single-symbol degeneracy in 3-symbol experiment)."
+  },
+  "objective": {
+    "name": "dro_minimax_median",
+    "dro_alpha": 0.5,
+    "formula": "median_seed( 0.5 * min(mean_symbol(val_h1), mean_symbol(val_h2)) + 0.5 * 0.5 * (mean_symbol(val_h1) + mean_symbol(val_h2)) )",
+    "interpretation": "α-смесь min и mean между двумя val halves (α=DRO_ALPHA=0.5). α=1.0 → классический temporal maximin DRO (CVaR(0.5) на 2-point uniform mixture); α=0.5 → mean-CVaR mixture (Rockafellar-Uryasev 2000): worst-half эффективный вес 0.75, best-half 0.25; α=0.0 → простое среднее. Должно совпадать с DRO_ALPHA в screening_bs_stable_vs_corr.py для consistency между screening selection и HPO objective.",
+    "diagnostic_baseline": {
+      "name": "dro_pure_min_median",
+      "formula": "median_seed( min(mean_symbol(val_h1), mean_symbol(val_h2)) )",
+      "purpose": "что было бы при α=1.0 (hard worst-case DRO baseline)"
+    },
+    "return_normalization": "val_full and val_h1 against START_CAPITAL; val_h2 against val_h1 ending balance (compound)"
+  },
+  "execution": {
+    "start_capital": 100.0,
+    "position_size": 0.1,
+    "min_hold_bars": 4,
+    "cooldown_bars": 2,
+    "confidence_threshold": 0.0,
+    "threshold_mode": "none",
+    "bandit_update_action_source": "executed",
+    "bandit_update_policy": "decision_only",
+    "screening_variant": "execution_action_decision_only",
+    "screening_minimax_dro_csv": "D:\\PythonProjects\\BTCTrading\\feature_selection\\bs_stable_hie_outputs_alpha0p5_train_only\\screening_execution_action_decision_only\\screening_minimax_dro.csv",
+    "update_on_validation": true,
+    "horizon": 10,
+    "trade_cost": 0.0025,
+    "reward_clip": 0.1
+  },
+  "confirmation": {
+    "enabled": true,
+    "top_n": 3,
+    "confirmation_seeds": [
+      8000,
+      8001,
+      8002,
+      8003,
+      8004,
+      8005,
+      8006,
+      8007,
+      8008,
+      8009,
+      8010,
+      8011,
+      8012,
+      8013,
+      8014,
+      8015,
+      8016,
+      8017,
+      8018,
+      8019,
+      8020,
+      8021,
+      8022,
+      8023,
+      8024
+    ]
+  },
+  "feature_pairs": [
+    {
+      "algorithm": "discounted_lints",
+      "method_group": "corr",
+      "set_name": "z24_a0p5_corr_pruned_top10",
+      "z_window": 24,
+      "n_market_features": 10,
+      "n_state_features": 1,
+      "n_total_features": 11,
+      "screening_dro": -4.825890487274005,
+      "screening_h1": -2.7237911562793613,
+      "screening_h2": -5.64936565202923,
+      "screening_full": -8.163884081096285,
+      "screening_median_trades": 408.5,
+      "features": "volatility_72_sqrt_z|ret_accel_6_24_z|MOM_pct_30_z|MOM_pct_14_z|ema_spread_9_21_z|log_ret_24_z|range_sqrt_z|vol_ratio_168_log1p_z|body_sqrt_z|ret_accel_24_72_z"
+    },
+    {
+      "algorithm": "discounted_lints",
+      "method_group": "hybrid",
+      "set_name": "z72_a0p5_hybrid_corr5_bsstablehie5_top10",
+      "z_window": 72,
+      "n_market_features": 10,
+      "n_state_features": 1,
+      "n_total_features": 11,
+      "screening_dro": -4.722411970766435,
+      "screening_h1": -2.178931012694627,
+      "screening_h2": -5.69303878553532,
+      "screening_full": -7.501422521473287,
+      "screening_median_trades": 387.5,
+      "features": "MOM_pct_14_z|vol_expansion_72_log1p_z|MACD_hist_pct_z|vol_ratio_72_log1p_z|ema_spread_9_21_z|ema_spread_100_200_z|ADX_72_scaled|ema_spread_50_100_z|ADX_30_scaled|dist_to_high_168_sqrt_z"
+    },
+    {
+      "algorithm": "discounted_linucb",
+      "method_group": "corr",
+      "set_name": "z24_a0p5_corr_pruned_top10",
+      "z_window": 24,
+      "n_market_features": 10,
+      "n_state_features": 1,
+      "n_total_features": 11,
+      "screening_dro": -4.313726568942774,
+      "screening_h1": -2.5143510209367186,
+      "screening_h2": -4.913518418278126,
+      "screening_full": -7.305285931571966,
+      "screening_median_trades": 390.0,
+      "features": "volatility_72_sqrt_z|ret_accel_6_24_z|MOM_pct_30_z|MOM_pct_14_z|ema_spread_9_21_z|log_ret_24_z|range_sqrt_z|vol_ratio_168_log1p_z|body_sqrt_z|ret_accel_24_72_z"
+    },
+    {
+      "algorithm": "discounted_linucb",
+      "method_group": "hybrid",
+      "set_name": "z72_a0p5_hybrid_corr5_bsstablehie5_top10",
+      "z_window": 72,
+      "n_market_features": 10,
+      "n_state_features": 1,
+      "n_total_features": 11,
+      "screening_dro": -4.015739433676508,
+      "screening_h1": -1.5569982565102265,
+      "screening_h2": -4.835319826065269,
+      "screening_full": -6.358071805536954,
+      "screening_median_trades": 300.0,
+      "features": "MOM_pct_14_z|vol_expansion_72_log1p_z|MACD_hist_pct_z|vol_ratio_72_log1p_z|ema_spread_9_21_z|ema_spread_100_200_z|ADX_72_scaled|ema_spread_50_100_z|ADX_30_scaled|dist_to_high_168_sqrt_z"
+    }
+  ]
+}

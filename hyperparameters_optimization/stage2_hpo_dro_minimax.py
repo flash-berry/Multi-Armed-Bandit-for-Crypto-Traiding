@@ -133,7 +133,7 @@ MACHINE_PRESETS = {
     "B_sliding":    ["sw_lints", "sw_linucb"],
     "ALL":          ["discounted_lints", "discounted_linucb", "sw_lints", "sw_linucb"],
 }
-RUN_PRESET = "ALL"  # second machine: change to "B_sliding"
+RUN_PRESET = "A_discounted"  # second machine: change to "B_sliding"
 
 # =====================================================================
 # Core protocol (synced with screening_bs_stable_vs_corr.py)
@@ -158,11 +158,11 @@ REWARD_CLIP = 0.10
 
 CONFIDENCE_THRESHOLD = 0.0
 THRESHOLD_MODE = "none"
-BANDIT_UPDATE_ACTION_SOURCE = "executed"
+BANDIT_UPDATE_ACTION_SOURCE = "raw"
 # Bandit update policy — decision_only skips bandit consultation and pending-update
 # queueing on forced-singleton bars (|feasible_set|=1 due to MIN_HOLD/COOLDOWN).
 # MUST match screening's BANDIT_UPDATE_POLICY for consistent feature-pair selection.
-BANDIT_UPDATE_POLICY = "decision_only"        # "all_bars" | "decision_only"
+BANDIT_UPDATE_POLICY = "all_bars"        # "all_bars" | "decision_only"
 STATE_FEATURES = ["state_in_position"]
 META_COLS = ["timestamp", "symbol", "open", "high", "low", "close", "volume"]
 
@@ -186,7 +186,7 @@ CONFIG_FOR_INDICATORS = {
 # some study, the bandit becomes too inactive on that symbol — either reduce the
 # constraint floor or re-check feature pair quality. After successful smoke
 # (>=1 feasible trial per study), set SMOKE_TEST=False and re-run for the full HPO.
-SMOKE_TEST = True
+SMOKE_TEST = False
 
 FULL_N_TRIALS = 50
 FULL_TS_SEEDS_PER_TRIAL = [3142, 3143, 3144, 3145, 3146]
