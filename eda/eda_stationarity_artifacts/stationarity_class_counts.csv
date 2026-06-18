@@ -1,0 +1,15 @@
+interval_minutes,z_window,series_kind,stationarity_class,n
+240,24,final_feature,stationary_by_ADF_and_KPSS,144
+240,24,final_feature,conflict_ADF_stationary_KPSS_nonstationary,18
+240,24,price_level,nonstationary_by_ADF_and_KPSS,6
+240,24,target_log_return,conflict_ADF_stationary_KPSS_nonstationary,11
+240,24,target_log_return,stationary_by_ADF_and_KPSS,4
+240,48,final_feature,stationary_by_ADF_and_KPSS,144
+240,48,final_feature,conflict_ADF_stationary_KPSS_nonstationary,18
+240,48,price_level,nonstationary_by_ADF_and_KPSS,6
+240,48,target_log_return,conflict_ADF_stationary_KPSS_nonstationary,15
+240,72,final_feature,stationary_by_ADF_and_KPSS,144
+240,72,final_feature,conflict_ADF_stationary_KPSS_nonstationary,18
+240,72,price_level,nonstationary_by_ADF_and_KPSS,6
+240,72,target_log_return,conflict_ADF_stationary_KPSS_nonstationary,11
+240,72,target_log_return,stationary_by_ADF_and_KPSS,4

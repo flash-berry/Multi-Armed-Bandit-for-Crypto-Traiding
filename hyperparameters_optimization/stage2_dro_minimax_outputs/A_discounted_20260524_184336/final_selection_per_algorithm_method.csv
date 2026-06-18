@@ -1,0 +1,5 @@
+selection_source,bandit_name,method_group,set_name,z_window,selected_trial_number,selected_dro,selected_feasible,selected_complete,is_fallback_any,is_fallback_infeasible,n_seeds_expected,n_seeds_used,n_seeds_missing,selected_dd,selected_pf,selected_trades,selected_min_sym,selected_memory,n_selection_seeds,original_optuna_dro
+ts_confirmation,discounted_lints,corr,z48_a0p5_corr_pruned_top10,48,40,-2.54726209987108,True,True,False,False,25,25,0,8.64032778402506,0.7461716744832777,408.0,95.0,447.1080146910576,25,-2.343976971676416
+ts_confirmation,discounted_lints,hybrid,z72_a0p5_hybrid_corr5_bsstablehie5_top10,72,44,-1.1051733039695404,True,True,False,False,25,25,0,4.291888234769681,0.7794379928136143,189.0,51.0,449.42550053126655,25,-0.9706657293931118
+hpo_best,discounted_linucb,corr,z48_a0p5_corr_pruned_top10,48,22,-2.0303385681780513,True,True,False,False,1,1,0,7.758730332058505,0.7517538138101527,415.0,94.0,398.75302173678676,1,-2.0303385681780513
+hpo_best,discounted_linucb,hybrid,z72_a0p5_hybrid_corr5_bsstablehie5_top10,72,8,-1.0937349678553465,True,True,False,False,1,1,0,3.899745450854053,0.7977228108972134,226.0,70.0,429.8412289530181,1,-1.0937349678553465

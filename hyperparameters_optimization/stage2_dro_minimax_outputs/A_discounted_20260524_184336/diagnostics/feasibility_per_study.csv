@@ -1,0 +1,5 @@
+bandit_name,method_group,set_name,z_window,n_total,n_feasible,feasible_share
+discounted_lints,corr,z48_a0p5_corr_pruned_top10,48,50,50,1.0
+discounted_lints,hybrid,z72_a0p5_hybrid_corr5_bsstablehie5_top10,72,50,46,0.92
+discounted_linucb,corr,z48_a0p5_corr_pruned_top10,48,50,50,1.0
+discounted_linucb,hybrid,z72_a0p5_hybrid_corr5_bsstablehie5_top10,72,50,49,0.98

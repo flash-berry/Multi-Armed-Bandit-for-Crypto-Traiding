@@ -1,0 +1,40 @@
+{
+  "run_type": "simple_one_shot_hie_full_train",
+  "started_at": "2026-06-08T16:59:48.146360",
+  "finished_at": "2026-06-08T17:03:23.215029",
+  "duration_seconds": 215.068669,
+  "project_root": "D:\\PythonProjects\\BTCTrading",
+  "output_dir": "D:\\PythonProjects\\BTCTrading\\feature_selection\\hie_simple_outputs_alpha0p5_train_only\\run_20260608_165948",
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT"
+  ],
+  "z_windows": [
+    24,
+    48,
+    72
+  ],
+  "alpha_out": 0.5,
+  "horizon": 10,
+  "trade_cost": 0.0025,
+  "future_log_ret_col": "future_log_ret_true",
+  "embargo_bars": 0,
+  "val_bars": 2000,
+  "test_bars": 2000,
+  "main_top_k": 14,
+  "sensitivity_grid_top_k": [
+    7,
+    14,
+    20,
+    26
+  ],
+  "hie": {
+    "n_bins": 15,
+    "n_bootstrap": 30,
+    "min_bin_size": 40,
+    "min_action_count_per_bin": 20,
+    "seed": 42
+  },
+  "notes": "Ordinary one-shot HIE is computed once on the full train split for each z-window. It uses the same feature engineering, chronological split, precomputed future_log_ret, counterfactual payoff semantics, entry/exit union ranking, and HIE parameters as the BS-Stable-HIE pipeline, but WITHOUT block subsampling and WITHOUT selection-frequency filtering. Artifacts are saved into a separate timestamped folder to avoid overwriting existing data."
+}
